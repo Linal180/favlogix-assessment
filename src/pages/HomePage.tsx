@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
   
   // Mobile navigation state
   const [showSidebar, setShowSidebar] = useState(false);
-  const [showDetails, setShowDetails] = useState(false);
+  const [showDetails, setShowDetails] = useState(true); // Show details panel by default on desktop
   const [mobileView, setMobileView] = useState<'list' | 'chat' | 'details'>('list');
 
   // Fetch users for chat list
@@ -77,11 +77,13 @@ const HomePage: React.FC = () => {
     setMobileView('list');
   };
 
-  // Handle details toggle on mobile
+  // Handle details toggle
   const handleToggleDetails = () => {
     if (window.innerWidth < 1024) {
+      // On mobile, switch to details view
       setMobileView('details');
     } else {
+      // On desktop, toggle details panel visibility
       setShowDetails(!showDetails);
     }
   };
