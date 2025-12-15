@@ -1,0 +1,15 @@
+# Ignore files that shouldn't be deployed to Vercel
+node_modules
+.git
+.gitignore
+README.md
+*.md
+figma-extracted
+.vscode
+.idea
+*.log
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+

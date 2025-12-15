@@ -282,7 +282,38 @@ The chat list includes a fully functional search feature:
 npm run build
 ```
 
-This creates an optimized production build in the `build/` folder. The build is minified and ready for deployment.
+This creates an optimized production build in the `build/` folder.
+
+## 🚀 Deployment
+
+### Deploying to Vercel
+
+This project is configured for easy deployment to Vercel:
+
+1. **Install Vercel CLI** (optional):
+```bash
+npm i -g vercel
+```
+
+2. **Deploy**:
+```bash
+vercel
+```
+
+Or connect your GitHub repository to Vercel for automatic deployments.
+
+**Vercel Configuration:**
+- Build Command: `npm run build`
+- Output Directory: `build`
+- Framework Preset: Create React App
+- Node Version: 18.x or higher
+
+The `vercel.json` file includes:
+- SPA routing configuration (all routes redirect to index.html)
+- Static asset caching headers
+- Optimized build settings
+
+**Note**: No environment variables are required as the app uses public dummy APIs. The build is minified and ready for deployment.
 
 ## 🧪 Testing
 
