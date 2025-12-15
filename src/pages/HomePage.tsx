@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useApi } from '../hooks/useApi';
 import { fetchUsers, fetchComments, fetchCommentsByPostId, transformUserToChat, transformToMessage } from '../utils/api';
 import LandingPage from '../components/LandingPage';
@@ -33,8 +33,10 @@ const HomePage: React.FC = () => {
     [selectedUserId]
   );
 
-  // Transform users to chat format
-  const chatUsers = users ? users.map((user, index) => transformUserToChat(user, index)) : [];
+  // Transform users to chat format - memoized to prevent unnecessary re-renders
+  const chatUsers = useMemo(() => {
+    return users ? users.map((user, index) => transformUserToChat(user, index)) : [];
+  }, [users]);
   
   // Set first user as selected by default
   useEffect(() => {
